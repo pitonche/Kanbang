@@ -62,8 +62,8 @@ export default function App() {
   }, [view]);
 
   return (
-    <>
-      <nav className="flex items-center gap-6 px-6 py-3 bg-white border-b border-slate-200">
+    <div className="flex flex-col h-screen overflow-hidden">
+      <nav className="flex items-center gap-6 px-6 py-3 bg-white border-b border-slate-200 shrink-0">
         <span className="text-lg font-bold text-slate-800">Kanbang</span>
         <button
           onClick={() => setView("board")}
@@ -85,6 +85,14 @@ export default function App() {
         >
           Archive
         </button>
+        {view === "board" && (
+          <button
+            onClick={() => setQuickAddOpen(true)}
+            className="ml-auto text-sm font-medium text-white bg-slate-700 hover:bg-slate-800 rounded-md px-3 py-1.5 transition-colors"
+          >
+            + New Task
+          </button>
+        )}
       </nav>
 
       {view === "board" ? (
@@ -96,6 +104,6 @@ export default function App() {
       {view === "board" && (
         <QuickAdd open={quickAddOpen} onClose={() => setQuickAddOpen(false)} />
       )}
-    </>
+    </div>
   );
 }

@@ -23,7 +23,7 @@ export function Column({ id, label, tasks, onTaskClick }: ColumnProps) {
         {label}
         <span className="ml-2 text-xs font-normal text-slate-400">{tasks.length}</span>
       </h2>
-      <div ref={setNodeRef} className="flex-1 p-2 min-h-[200px]">
+      <div ref={setNodeRef} className="p-2 min-h-[80px]">
         <SortableContext items={taskIds} strategy={verticalListSortingStrategy}>
           {tasks.length === 0 ? (
             <p className="text-sm text-empty-state text-center mt-8">

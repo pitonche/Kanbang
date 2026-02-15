@@ -146,7 +146,7 @@ export function Board({ onSearchInputRef }: { onSearchInputRef?: (el: HTMLInputE
         onDragStart={handleDragStart}
         onDragEnd={handleDragEnd}
       >
-        <div className="flex flex-col min-h-screen bg-board-bg">
+        <div className="flex flex-col flex-1 overflow-hidden bg-board-bg">
           {/* Toolbar */}
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-4 px-4 sm:px-6 pt-4 pb-2">
             <SearchBar value={searchTerm} onChange={handleSearchChange} inputRef={onSearchInputRef} />
@@ -191,7 +191,7 @@ export function Board({ onSearchInputRef }: { onSearchInputRef?: (el: HTMLInputE
               )}
             </div>
           ) : (
-            <div className="flex gap-4 px-6 pb-6 overflow-x-auto flex-1">
+            <div className="flex gap-4 px-6 pb-6 overflow-x-auto flex-1 items-start">
               {COLUMNS.map((col) => (
                 <Column
                   key={col.id}

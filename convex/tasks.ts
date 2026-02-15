@@ -92,3 +92,30 @@ export const remove = mutation({
     await ctx.db.delete(args.id);
   },
 });
+
+export const moveToColumn = mutation({
+  args: {
+    id: v.id("tasks"),
+    column: v.union(
+      v.literal("inbox"),
+      v.literal("backlog"),
+      v.literal("in_progress"),
+      v.literal("needs_info"),
+      v.literal("blocked"),
+      v.literal("done"),
+    ),
+  },
+  handler: async (ctx, args) => {
+    const now = Date.now();
+    const updates: Record<string, unknown> = {
+      column: args.column,
+      updatedAt: now,
+    };
+    if (args.column === "done") {
+      updates.completedAt = now;
+    } else {
+      updates.completedAt = undefined;
+    }
+    await ctx.db.patch(args.id, updates);
+  },
+});

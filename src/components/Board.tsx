@@ -7,6 +7,7 @@ import {
   DragOverlay,
   closestCorners,
   PointerSensor,
+  TouchSensor,
   useSensor,
   useSensors,
 } from "@dnd-kit/core";
@@ -62,6 +63,7 @@ export function Board({ onSearchInputRef }: { onSearchInputRef?: (el: HTMLInputE
 
   const sensors = useSensors(
     useSensor(PointerSensor, { activationConstraint: { distance: 8 } }),
+    useSensor(TouchSensor, { activationConstraint: { delay: 200, tolerance: 5 } }),
   );
 
   const moveToColumn = useMutation(api.tasks.moveToColumn).withOptimisticUpdate(
@@ -146,7 +148,7 @@ export function Board({ onSearchInputRef }: { onSearchInputRef?: (el: HTMLInputE
       >
         <div className="flex flex-col min-h-screen bg-board-bg">
           {/* Toolbar */}
-          <div className="flex items-center gap-4 px-6 pt-4 pb-2">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-4 px-4 sm:px-6 pt-4 pb-2">
             <SearchBar value={searchTerm} onChange={handleSearchChange} inputRef={onSearchInputRef} />
             <CadenceFilter
               active={cadenceFilter}

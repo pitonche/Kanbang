@@ -27,6 +27,7 @@ export function TaskCard({ task, onClick }: TaskCardProps) {
     transform: CSS.Transform.toString(transform),
     transition,
     opacity: isDragging ? 0.5 : 1,
+    touchAction: "manipulation" as const,
   };
 
   return (

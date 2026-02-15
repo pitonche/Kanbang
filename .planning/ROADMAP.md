@@ -29,11 +29,11 @@ Decimal phases appear between their surrounding integers in numeric order.
   1. User opens the app and sees a board with 6 labeled columns: Inbox, Backlog, In Progress, Needs Info, Blocked, Done
   2. Convex schema exists with all task fields (title, notes, column, cadence, priority, createdAt, updatedAt, completedAt, archivedAt, searchText) and indexes (by_column, search on searchText)
   3. App runs locally via Vite dev server with Convex backend connected
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
-- [ ] 01-01: TBD
-- [ ] 01-02: TBD
+- [ ] 01-01-PLAN.md -- Scaffold project from Convex template, install with bun, replace schema with complete Kanbang tasks table
+- [ ] 01-02-PLAN.md -- Replace template UI with static 6-column Kanban board (Board + Column components, Tailwind theme)
 
 ### Phase 2: Task Management
 **Goal**: User can create, view, edit, and delete tasks — the board becomes a functional tool for capturing and organizing work
@@ -111,7 +111,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation | 0/TBD | Not started | - |
+| 1. Foundation | 0/2 | Not started | - |
 | 2. Task Management | 0/TBD | Not started | - |
 | 3. Drag and Drop | 0/TBD | Not started | - |
 | 4. Search and Filters | 0/TBD | Not started | - |

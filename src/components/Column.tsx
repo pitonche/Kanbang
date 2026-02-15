@@ -21,6 +21,7 @@ export function Column({ id, label, tasks, onTaskClick }: ColumnProps) {
     <div className="flex flex-col w-72 shrink-0 rounded-lg bg-column-bg">
       <h2 className="px-3 py-2 text-sm font-semibold text-column-header uppercase tracking-wide">
         {label}
+        <span className="ml-2 text-xs font-normal text-slate-400">{tasks.length}</span>
       </h2>
       <div ref={setNodeRef} className="flex-1 p-2 min-h-[200px]">
         <SortableContext items={taskIds} strategy={verticalListSortingStrategy}>

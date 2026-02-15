@@ -88,10 +88,11 @@ Plans:
   2. Archived tasks have an archivedAt timestamp recorded
   3. User can navigate to an Archived view that shows all archived tasks (separate from the board columns)
   4. User can search and browse archived tasks within the Archived view
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
-- [ ] 05-01: TBD
+- [ ] 05-01-PLAN.md -- Schema update (archived column, compound index), archiveOldDone mutation, list excludes archived, listArchived query, App mount trigger
+- [ ] 05-02-PLAN.md -- ArchiveView component with search/browse, App.tsx view switching with nav UI
 
 ### Phase 6: Polish and Deploy
 **Goal**: The app is responsive on mobile, visually polished, and deployed to a public URL
@@ -117,5 +118,5 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6
 | 2. Task Management | 2/2 | ✓ Complete | 2026-02-15 |
 | 3. Drag and Drop | 2/2 | ✓ Complete | 2026-02-15 |
 | 4. Search and Filters | 2/2 | ✓ Complete | 2026-02-15 |
-| 5. Auto-Archive | 0/TBD | Not started | - |
+| 5. Auto-Archive | 0/2 | Not started | - |
 | 6. Polish and Deploy | 0/TBD | Not started | - |

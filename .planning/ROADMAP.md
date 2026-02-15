@@ -102,10 +102,11 @@ Plans:
   1. Board layout adapts to mobile browser viewports and remains usable (columns scrollable or stacked)
   2. Each column header displays the count of tasks it contains
   3. App is deployed to Vercel and accessible via a public URL with Convex backend connected
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
-- [ ] 06-01: TBD
+- [ ] 06-01-PLAN.md -- Responsive toolbar, touch sensor, SearchBar width, column task counts, page title
+- [ ] 06-02-PLAN.md -- vercel.json SPA rewrites, GitHub repo, Vercel deployment with Convex backend
 
 ## Progress
 
@@ -119,4 +120,4 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6
 | 3. Drag and Drop | 2/2 | ✓ Complete | 2026-02-15 |
 | 4. Search and Filters | 2/2 | ✓ Complete | 2026-02-15 |
 | 5. Auto-Archive | 2/2 | ✓ Complete | 2026-02-15 |
-| 6. Polish and Deploy | 0/TBD | Not started | - |
+| 6. Polish and Deploy | 0/2 | Not started | - |

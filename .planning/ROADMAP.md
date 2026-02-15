@@ -45,11 +45,11 @@ Plans:
   3. User can delete a task and it is permanently removed from the board
   4. Task cards display a color indicator for priority level (low/medium/high)
   5. User can press "N" anywhere on the board to open quick-add with cursor focused in the title field
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
-- [ ] 02-01: TBD
-- [ ] 02-02: TBD
+- [ ] 02-01-PLAN.md -- Convex task CRUD functions, TaskCard with priority colors, Board/Column wired to real data
+- [ ] 02-02-PLAN.md -- TaskModal for edit/delete, QuickAdd form with N keyboard shortcut
 
 ### Phase 3: Drag and Drop
 **Goal**: User can move tasks between columns by dragging and dropping, making the board feel like a real Kanban tool
@@ -112,7 +112,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Foundation | 2/2 | ✓ Complete | 2026-02-15 |
-| 2. Task Management | 0/TBD | Not started | - |
+| 2. Task Management | 0/2 | Not started | - |
 | 3. Drag and Drop | 0/TBD | Not started | - |
 | 4. Search and Filters | 0/TBD | Not started | - |
 | 5. Auto-Archive | 0/TBD | Not started | - |

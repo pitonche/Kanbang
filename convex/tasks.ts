@@ -4,7 +4,10 @@ import { v } from "convex/values";
 export const list = query({
   args: {},
   handler: async (ctx) => {
-    return await ctx.db.query("tasks").collect();
+    return await ctx.db
+      .query("tasks")
+      .filter((q) => q.neq(q.field("column"), "archived"))
+      .collect();
   },
 });
 
@@ -131,5 +134,38 @@ export const search = query({
         q.search("searchText", args.term)
       )
       .take(20);
+  },
+});
+
+export const archiveOldDone = mutation({
+  args: {},
+  handler: async (ctx) => {
+    const fourteenDaysAgo = Date.now() - 14 * 24 * 60 * 60 * 1000;
+    const now = Date.now();
+
+    const oldDoneTasks = await ctx.db
+      .query("tasks")
+      .withIndex("by_column_completedAt", (q) =>
+        q.eq("column", "done").lt("completedAt", fourteenDaysAgo)
+      )
+      .collect();
+
+    for (const task of oldDoneTasks) {
+      await ctx.db.patch(task._id, {
+        column: "archived",
+        archivedAt: now,
+        updatedAt: now,
+      });
+    }
+  },
+});
+
+export const listArchived = query({
+  args: {},
+  handler: async (ctx) => {
+    return await ctx.db
+      .query("tasks")
+      .withIndex("by_column", (q) => q.eq("column", "archived"))
+      .collect();
   },
 });

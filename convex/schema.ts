@@ -15,6 +15,7 @@ export default defineSchema({
       v.literal("needs_info"),
       v.literal("blocked"),
       v.literal("done"),
+      v.literal("archived"),
     ),
 
     // Task metadata
@@ -41,6 +42,7 @@ export default defineSchema({
   })
     // Database index: query tasks by column (for board rendering)
     .index("by_column", ["column"])
+    .index("by_column_completedAt", ["column", "completedAt"])
     // Full-text search index: search across title+notes via searchText
     .searchIndex("search_text", {
       searchField: "searchText",

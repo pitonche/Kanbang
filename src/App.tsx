@@ -1,10 +1,23 @@
 import { useState, useEffect, useRef } from "react";
+import { useMutation } from "convex/react";
+import { api } from "../convex/_generated/api";
 import { Board } from "./components/Board";
 import { QuickAdd } from "./components/QuickAdd";
 
 export default function App() {
   const [quickAddOpen, setQuickAddOpen] = useState(false);
   const searchInputRef = useRef<HTMLInputElement | null>(null);
+
+  // Archive Done tasks older than 14 days on mount (StrictMode guard)
+  const archiveOldDone = useMutation(api.tasks.archiveOldDone);
+  const archiveTriggered = useRef(false);
+
+  useEffect(() => {
+    if (!archiveTriggered.current) {
+      archiveTriggered.current = true;
+      archiveOldDone();
+    }
+  }, [archiveOldDone]);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {

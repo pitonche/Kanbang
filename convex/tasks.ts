@@ -119,3 +119,17 @@ export const moveToColumn = mutation({
     await ctx.db.patch(args.id, updates);
   },
 });
+
+export const search = query({
+  args: {
+    term: v.string(),
+  },
+  handler: async (ctx, args) => {
+    return await ctx.db
+      .query("tasks")
+      .withSearchIndex("search_text", (q) =>
+        q.search("searchText", args.term)
+      )
+      .take(20);
+  },
+});

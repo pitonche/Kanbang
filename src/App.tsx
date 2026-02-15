@@ -1,9 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Board } from "./components/Board";
 import { QuickAdd } from "./components/QuickAdd";
 
 export default function App() {
   const [quickAddOpen, setQuickAddOpen] = useState(false);
+  const searchInputRef = useRef<HTMLInputElement | null>(null);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -32,6 +33,11 @@ export default function App() {
         e.preventDefault();
         setQuickAddOpen(true);
       }
+
+      if (e.key === "/") {
+        e.preventDefault();
+        searchInputRef.current?.focus();
+      }
     };
 
     document.addEventListener("keydown", handleKeyDown);
@@ -40,7 +46,7 @@ export default function App() {
 
   return (
     <>
-      <Board />
+      <Board onSearchInputRef={(el) => { searchInputRef.current = el; }} />
       <QuickAdd open={quickAddOpen} onClose={() => setQuickAddOpen(false)} />
     </>
   );

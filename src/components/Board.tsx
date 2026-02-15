@@ -15,6 +15,7 @@ import { Column } from "./Column";
 import { TaskModal } from "./TaskModal";
 import { TaskCardOverlay } from "./TaskCardOverlay";
 import { SearchBar } from "./SearchBar";
+import { CadenceFilter } from "./CadenceFilter";
 import { useDebounce } from "../hooks/useDebounce";
 
 export const COLUMNS = [
@@ -28,7 +29,7 @@ export const COLUMNS = [
 
 export type ColumnId = (typeof COLUMNS)[number]["id"];
 
-export function Board() {
+export function Board({ onSearchInputRef }: { onSearchInputRef?: (el: HTMLInputElement | null) => void }) {
   const tasks = useQuery(api.tasks.list);
   const [selectedTaskId, setSelectedTaskId] = useState<Id<"tasks"> | null>(
     null,
@@ -44,6 +45,20 @@ export function Board() {
   );
 
   const isSearchActive = debouncedTerm.trim().length > 0;
+
+  const [cadenceFilter, setCadenceFilter] = useState<string | null>(null);
+
+  function handleSearchChange(value: string) {
+    setSearchTerm(value);
+    if (value.trim()) {
+      setCadenceFilter(null);
+    }
+  }
+
+  function handleCadenceFilter(cadence: string | null) {
+    setCadenceFilter(cadence);
+    setSearchTerm("");
+  }
 
   const sensors = useSensors(
     useSensor(PointerSensor, { activationConstraint: { distance: 8 } }),
@@ -81,7 +96,11 @@ export function Board() {
 
   const typedTasks = tasks as Doc<"tasks">[];
 
-  const tasksByColumn = Object.groupBy(typedTasks, (t) => t.column);
+  const filteredTasks = cadenceFilter
+    ? typedTasks.filter((t) => t.cadence === cadenceFilter)
+    : typedTasks;
+
+  const tasksByColumn = Object.groupBy(filteredTasks, (t) => t.column);
   const selectedTask = typedTasks.find((t) => t._id === selectedTaskId) ?? null;
 
   function handleDragStart(event: DragStartEvent) {
@@ -128,7 +147,12 @@ export function Board() {
         <div className="flex flex-col min-h-screen bg-board-bg">
           {/* Toolbar */}
           <div className="flex items-center gap-4 px-6 pt-4 pb-2">
-            <SearchBar value={searchTerm} onChange={setSearchTerm} />
+            <SearchBar value={searchTerm} onChange={handleSearchChange} inputRef={onSearchInputRef} />
+            <CadenceFilter
+              active={cadenceFilter}
+              onFilter={handleCadenceFilter}
+              disabled={isSearchActive}
+            />
           </div>
 
           {/* Content area: search results OR board columns */}

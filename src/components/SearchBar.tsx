@@ -1,9 +1,10 @@
 interface SearchBarProps {
   value: string;
   onChange: (value: string) => void;
+  inputRef?: (el: HTMLInputElement | null) => void;
 }
 
-export function SearchBar({ value, onChange }: SearchBarProps) {
+export function SearchBar({ value, onChange, inputRef }: SearchBarProps) {
   return (
     <div className="relative">
       <svg
@@ -20,6 +21,7 @@ export function SearchBar({ value, onChange }: SearchBarProps) {
         />
       </svg>
       <input
+        ref={inputRef}
         type="text"
         value={value}
         onChange={(e) => onChange(e.target.value)}

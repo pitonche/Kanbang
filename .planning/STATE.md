@@ -5,23 +5,23 @@
 See: .planning/PROJECT.md (updated 2026-02-15)
 
 **Core value:** Add a task in seconds, find any past task by keyword in seconds -- the board stays clean because Done items auto-archive, but history is never lost.
-**Current focus:** Phase 4: Search and Filters -- Plan 01 complete, Plan 02 next
+**Current focus:** Phase 4: Search and Filters -- Complete. Ready for Phase 5
 
 ## Current Position
 
-Phase: 4 of 6 (Search and Filters)
-Plan: 1 of 2 in current phase
-Status: Plan 04-01 complete, ready for Plan 04-02
-Last activity: 2026-02-15 -- Completed 04-01 (full-text search)
+Phase: 4 of 6 (Search and Filters) -- COMPLETE
+Plan: 2 of 2 in current phase
+Status: Phase 04 complete, ready for Phase 05
+Last activity: 2026-02-15 -- Completed 04-02 (cadence filter and search shortcut)
 
-Progress: [██████░░░░] 58%
+Progress: [███████░░░] 67%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 7
+- Total plans completed: 8
 - Average duration: 2min
-- Total execution time: 0.25 hours
+- Total execution time: 0.28 hours
 
 **By Phase:**
 
@@ -30,10 +30,10 @@ Progress: [██████░░░░] 58%
 | 01-foundation | 2 | 6min | 3min |
 | 02-task-management | 2 | 4min | 2min |
 | 03-drag-and-drop | 2 | 3min | 1.5min |
-| 04-search-and-filters | 1 | 2min | 2min |
+| 04-search-and-filters | 2 | 4min | 2min |
 
 **Recent Trend:**
-- Last 5 plans: 02-02 (2min), 03-01 (1min), 03-02 (2min), 04-01 (2min)
+- Last 5 plans: 02-02 (2min), 03-01 (1min), 03-02 (2min), 04-01 (2min), 04-02 (2min)
 - Trend: Stable/fast
 
 *Updated after each plan completion*
@@ -67,6 +67,9 @@ Recent decisions affecting current work:
 - [Phase 04-01]: 300ms debounce delay for search; Convex skip pattern for conditional query execution
 - [Phase 04-01]: Search results capped at 20 via .take(20) -- sufficient for personal kanban
 - [Phase 04-01]: Toolbar pattern established above board content for SearchBar (extensible for future widgets)
+- [Phase 04-02]: Mutual exclusion via state clearing -- search clears cadence filter, filter clears search text
+- [Phase 04-02]: Ref callback pattern (not forwardRef) for cross-component focus wiring through Board prop
+- [Phase 04-02]: Client-side cadence filtering applied before Object.groupBy -- selectedTask uses full typedTasks array
 
 ### Pending Todos
 
@@ -79,5 +82,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-02-15
-Stopped at: Completed 04-01-PLAN.md -- Full-text search with debounced SearchBar and conditional search results view
+Stopped at: Completed 04-02-PLAN.md -- Cadence filter buttons and "/" search shortcut. Phase 04 complete.
 Resume file: None

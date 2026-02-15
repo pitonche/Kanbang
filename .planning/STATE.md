@@ -5,33 +5,33 @@
 See: .planning/PROJECT.md (updated 2026-02-15)
 
 **Core value:** Add a task in seconds, find any past task by keyword in seconds -- the board stays clean because Done items auto-archive, but history is never lost.
-**Current focus:** Phase 2: Task Management
+**Current focus:** Phase 3: Drag and Drop
 
 ## Current Position
 
-Phase: 2 of 6 (Task Management)
-Plan: 1 of 2 in current phase
-Status: Executing
-Last activity: 2026-02-15 -- Completed 02-01 (Task CRUD and data-driven board)
+Phase: 3 of 6 (Drag and Drop)
+Plan: 0 of ? in current phase
+Status: Phase 2 complete -- ready for Phase 3
+Last activity: 2026-02-15 -- Completed 02-02 (Task detail modal and quick-add)
 
-Progress: [███░░░░░░░] 25%
+Progress: [████░░░░░░] 33%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 3
+- Total plans completed: 4
 - Average duration: 3min
-- Total execution time: 0.13 hours
+- Total execution time: 0.17 hours
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
 | 01-foundation | 2 | 6min | 3min |
-| 02-task-management | 1 | 2min | 2min |
+| 02-task-management | 2 | 4min | 2min |
 
 **Recent Trend:**
-- Last 5 plans: 01-01 (4min), 01-02 (2min), 02-01 (2min)
+- Last 5 plans: 01-01 (4min), 01-02 (2min), 02-01 (2min), 02-02 (2min)
 - Trend: Accelerating
 
 *Updated after each plan completion*
@@ -52,6 +52,9 @@ Recent decisions affecting current work:
 - [01-02]: Slate palette for board colors and forward-declared card-bg/card-border tokens for Phase 2 readiness
 - [Phase 02-01]: Cast useQuery result to Doc<tasks>[] for Object.groupBy type inference
 - [Phase 02-01]: Client-side column grouping via Object.groupBy rather than per-column Convex queries
+- [Phase 02-02]: Consolidated typedTasks cast for both Object.groupBy and selectedTask find
+- [Phase 02-02]: QuickAdd defaults cadence "none" and priority "medium" -- user refines via TaskModal
+- [Phase 02-02]: Native HTML dialog element pattern for modals (no library dependency)
 
 ### Pending Todos
 
@@ -64,5 +67,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-02-15
-Stopped at: Completed 02-01-PLAN.md -- ready for 02-02-PLAN.md
+Stopped at: Completed 02-02-PLAN.md -- Phase 2 (Task Management) complete, ready for Phase 3 (Drag and Drop)
 Resume file: None

@@ -1,12 +1,49 @@
 import { defineSchema, defineTable } from "convex/server";
 import { v } from "convex/values";
 
-// The schema is entirely optional.
-// You can delete this file (schema.ts) and the
-// app will continue to work.
-// The schema provides more precise TypeScript types.
 export default defineSchema({
-  numbers: defineTable({
-    value: v.number(),
-  }),
+  tasks: defineTable({
+    // Core fields
+    title: v.string(),
+    notes: v.optional(v.string()),
+
+    // Board position
+    column: v.union(
+      v.literal("inbox"),
+      v.literal("backlog"),
+      v.literal("in_progress"),
+      v.literal("needs_info"),
+      v.literal("blocked"),
+      v.literal("done"),
+    ),
+
+    // Task metadata
+    cadence: v.union(
+      v.literal("daily"),
+      v.literal("weekly"),
+      v.literal("monthly"),
+      v.literal("none"),
+    ),
+    priority: v.union(
+      v.literal("low"),
+      v.literal("medium"),
+      v.literal("high"),
+    ),
+
+    // Timestamps (milliseconds since epoch via Date.now())
+    createdAt: v.number(),
+    updatedAt: v.number(),
+    completedAt: v.optional(v.number()),
+    archivedAt: v.optional(v.number()),
+
+    // Composite search field (title + notes, computed at write time)
+    searchText: v.string(),
+  })
+    // Database index: query tasks by column (for board rendering)
+    .index("by_column", ["column"])
+    // Full-text search index: search across title+notes via searchText
+    .searchIndex("search_text", {
+      searchField: "searchText",
+      filterFields: ["column"],
+    }),
 });

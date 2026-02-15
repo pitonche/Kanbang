@@ -5,23 +5,23 @@
 See: .planning/PROJECT.md (updated 2026-02-15)
 
 **Core value:** Add a task in seconds, find any past task by keyword in seconds -- the board stays clean because Done items auto-archive, but history is never lost.
-**Current focus:** Phase 5: Auto-Archive -- Complete. Ready for Phase 06.
+**Current focus:** Phase 6: Polish and Deploy -- Plan 1 complete. Ready for Plan 2.
 
 ## Current Position
 
-Phase: 5 of 6 (Auto-Archive)
-Plan: 2 of 2 in current phase
-Status: Phase 05 Complete
-Last activity: 2026-02-15 -- Completed 05-02 (archive view UI)
+Phase: 6 of 6 (Polish and Deploy)
+Plan: 1 of 2 in current phase
+Status: Executing Phase 06
+Last activity: 2026-02-15 -- Completed 06-01 (responsive polish)
 
-Progress: [█████████░] 83%
+Progress: [█████████▒] 92%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 10
+- Total plans completed: 11
 - Average duration: 2min
-- Total execution time: 0.32 hours
+- Total execution time: 0.34 hours
 
 **By Phase:**
 
@@ -32,9 +32,10 @@ Progress: [█████████░] 83%
 | 03-drag-and-drop | 2 | 3min | 1.5min |
 | 04-search-and-filters | 2 | 4min | 2min |
 | 05-auto-archive | 2 | 2min | 1min |
+| 06-polish-and-deploy | 1 | 1min | 1min |
 
 **Recent Trend:**
-- Last 5 plans: 03-02 (2min), 04-01 (2min), 04-02 (2min), 05-01 (1min), 05-02 (1min)
+- Last 5 plans: 04-01 (2min), 04-02 (2min), 05-01 (1min), 05-02 (1min), 06-01 (1min)
 - Trend: Stable/fast
 
 *Updated after each plan completion*
@@ -77,6 +78,8 @@ Recent decisions affecting current work:
 - [Phase 05-02]: Client-side search filtering on searchText field for archive search (bounded volume, no server query needed)
 - [Phase 05-02]: Nav bar above view content with active border-b-2 styling for view switching
 - [Phase 05-02]: useEffect dependency on view state for keyboard shortcut guard correctness
+- [Phase 06-01]: TouchSensor delay:200 tolerance:5 for long-press drag on mobile
+- [Phase 06-01]: touchAction:manipulation (not none) to preserve scroll while enabling drag
 
 ### Pending Todos
 
@@ -89,5 +92,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-02-15
-Stopped at: Completed 05-02-PLAN.md -- Archive view UI (ArchiveView component, App.tsx view switching). Phase 05 complete. Ready for Phase 06.
+Stopped at: Completed 06-01-PLAN.md -- Responsive polish (mobile toolbar, TouchSensor, column counts, page title). Ready for 06-02.
 Resume file: None

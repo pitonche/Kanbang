@@ -39,7 +39,9 @@ export function Board() {
 
   const moveToColumn = useMutation(api.tasks.moveToColumn).withOptimisticUpdate(
     (localStore, args) => {
-      const currentTasks = localStore.getQuery(api.tasks.list, {});
+      const currentTasks = localStore.getQuery(api.tasks.list, {}) as
+        | Doc<"tasks">[]
+        | undefined;
       if (currentTasks === undefined) return;
       const now = Date.now();
       const updatedTasks = currentTasks.map((task) => {

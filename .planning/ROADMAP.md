@@ -12,7 +12,7 @@ Kanbang delivers a personal Kanban board in 6 phases, progressing from data mode
 
 Decimal phases appear between their surrounding integers in numeric order.
 
-- [ ] **Phase 1: Foundation** - Convex schema, project scaffolding, and static board with 6 columns
+- [x] **Phase 1: Foundation** - Convex schema, project scaffolding, and static board with 6 columns (completed 2026-02-15)
 - [ ] **Phase 2: Task Management** - Full task CRUD with modal editing and keyboard quick-add
 - [ ] **Phase 3: Drag and Drop** - Move tasks between columns via drag-and-drop with optimistic UI
 - [ ] **Phase 4: Search and Filters** - Full-text search across active and archived tasks with quick filters
@@ -32,8 +32,8 @@ Decimal phases appear between their surrounding integers in numeric order.
 **Plans**: 2 plans
 
 Plans:
-- [ ] 01-01-PLAN.md -- Scaffold project from Convex template, install with bun, replace schema with complete Kanbang tasks table
-- [ ] 01-02-PLAN.md -- Replace template UI with static 6-column Kanban board (Board + Column components, Tailwind theme)
+- [x] 01-01-PLAN.md -- Scaffold project from Convex template, install with bun, replace schema with complete Kanbang tasks table
+- [x] 01-02-PLAN.md -- Replace template UI with static 6-column Kanban board (Board + Column components, Tailwind theme)
 
 ### Phase 2: Task Management
 **Goal**: User can create, view, edit, and delete tasks — the board becomes a functional tool for capturing and organizing work
@@ -111,7 +111,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation | 0/2 | Not started | - |
+| 1. Foundation | 2/2 | ✓ Complete | 2026-02-15 |
 | 2. Task Management | 0/TBD | Not started | - |
 | 3. Drag and Drop | 0/TBD | Not started | - |
 | 4. Search and Filters | 0/TBD | Not started | - |

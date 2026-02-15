@@ -3,6 +3,7 @@ import { useQuery } from "convex/react";
 import { api } from "../../convex/_generated/api";
 import type { Doc, Id } from "../../convex/_generated/dataModel";
 import { Column } from "./Column";
+import { TaskModal } from "./TaskModal";
 
 export const COLUMNS = [
   { id: "inbox", label: "Inbox" },
@@ -29,13 +30,10 @@ export function Board() {
     );
   }
 
-  const tasksByColumn = Object.groupBy(
-    tasks as Doc<"tasks">[],
-    (t) => t.column,
-  );
+  const typedTasks = tasks as Doc<"tasks">[];
 
-  // selectedTaskId will be used in Plan 02-02 for the task modal
-  void selectedTaskId;
+  const tasksByColumn = Object.groupBy(typedTasks, (t) => t.column);
+  const selectedTask = typedTasks.find((t) => t._id === selectedTaskId) ?? null;
 
   return (
     <div className="flex gap-4 p-6 overflow-x-auto min-h-screen bg-board-bg">
@@ -48,6 +46,10 @@ export function Board() {
           onTaskClick={setSelectedTaskId}
         />
       ))}
+      <TaskModal
+        task={selectedTask}
+        onClose={() => setSelectedTaskId(null)}
+      />
     </div>
   );
 }

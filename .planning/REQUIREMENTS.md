@@ -84,30 +84,30 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| BOARD-01 | — | Pending |
-| BOARD-02 | — | Pending |
-| BOARD-03 | — | Pending |
-| TASK-01 | — | Pending |
-| TASK-02 | — | Pending |
-| TASK-03 | — | Pending |
-| TASK-04 | — | Pending |
-| TASK-05 | — | Pending |
-| TASK-06 | — | Pending |
-| TASK-07 | — | Pending |
-| SRCH-01 | — | Pending |
-| SRCH-02 | — | Pending |
-| SRCH-03 | — | Pending |
-| ARCH-01 | — | Pending |
-| ARCH-02 | — | Pending |
-| ARCH-03 | — | Pending |
-| ARCH-04 | — | Pending |
-| DEPL-01 | — | Pending |
+| BOARD-01 | Phase 1: Foundation | Pending |
+| BOARD-02 | Phase 6: Polish and Deploy | Pending |
+| BOARD-03 | Phase 6: Polish and Deploy | Pending |
+| TASK-01 | Phase 2: Task Management | Pending |
+| TASK-02 | Phase 2: Task Management | Pending |
+| TASK-03 | Phase 2: Task Management | Pending |
+| TASK-04 | Phase 3: Drag and Drop | Pending |
+| TASK-05 | Phase 3: Drag and Drop | Pending |
+| TASK-06 | Phase 2: Task Management | Pending |
+| TASK-07 | Phase 2: Task Management | Pending |
+| SRCH-01 | Phase 4: Search and Filters | Pending |
+| SRCH-02 | Phase 4: Search and Filters | Pending |
+| SRCH-03 | Phase 4: Search and Filters | Pending |
+| ARCH-01 | Phase 5: Auto-Archive | Pending |
+| ARCH-02 | Phase 5: Auto-Archive | Pending |
+| ARCH-03 | Phase 5: Auto-Archive | Pending |
+| ARCH-04 | Phase 5: Auto-Archive | Pending |
+| DEPL-01 | Phase 6: Polish and Deploy | Pending |
 
 **Coverage:**
 - v1 requirements: 18 total
-- Mapped to phases: 0
-- Unmapped: 18 ⚠️
+- Mapped to phases: 18
+- Unmapped: 0
 
 ---
 *Requirements defined: 2026-02-15*
-*Last updated: 2026-02-15 after initial definition*
+*Last updated: 2026-02-15 after roadmap creation*

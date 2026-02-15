@@ -5,23 +5,23 @@
 See: .planning/PROJECT.md (updated 2026-02-15)
 
 **Core value:** Add a task in seconds, find any past task by keyword in seconds -- the board stays clean because Done items auto-archive, but history is never lost.
-**Current focus:** Phase 3 complete -- ready for Phase 4: Search and Filters
+**Current focus:** Phase 4: Search and Filters -- Plan 01 complete, Plan 02 next
 
 ## Current Position
 
-Phase: 3 of 6 (Drag and Drop) -- COMPLETE
-Plan: 2 of 2 in current phase (all plans complete)
-Status: Phase 3 complete, ready for Phase 4
-Last activity: 2026-02-15 -- Completed 03-02 (DnD board wiring)
+Phase: 4 of 6 (Search and Filters)
+Plan: 1 of 2 in current phase
+Status: Plan 04-01 complete, ready for Plan 04-02
+Last activity: 2026-02-15 -- Completed 04-01 (full-text search)
 
-Progress: [█████░░░░░] 50%
+Progress: [██████░░░░] 58%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 6
+- Total plans completed: 7
 - Average duration: 2min
-- Total execution time: 0.21 hours
+- Total execution time: 0.25 hours
 
 **By Phase:**
 
@@ -30,9 +30,10 @@ Progress: [█████░░░░░] 50%
 | 01-foundation | 2 | 6min | 3min |
 | 02-task-management | 2 | 4min | 2min |
 | 03-drag-and-drop | 2 | 3min | 1.5min |
+| 04-search-and-filters | 1 | 2min | 2min |
 
 **Recent Trend:**
-- Last 5 plans: 02-01 (2min), 02-02 (2min), 03-01 (1min), 03-02 (2min)
+- Last 5 plans: 02-02 (2min), 03-01 (1min), 03-02 (2min), 04-01 (2min)
 - Trend: Stable/fast
 
 *Updated after each plan completion*
@@ -62,6 +63,10 @@ Recent decisions affecting current work:
 - [Phase 03-02]: PointerSensor distance:8 prevents click-vs-drag conflict without touch delay
 - [Phase 03-02]: Optimistic update casts getQuery result to Doc<tasks>[] for strict build mode compatibility
 - [Phase 03-02]: Column detection in handleDragEnd checks COLUMNS ids first, then falls back to task lookup
+- [Phase 04-01]: No column filter on search query -- returns all tasks including Done for SRCH-02 compliance
+- [Phase 04-01]: 300ms debounce delay for search; Convex skip pattern for conditional query execution
+- [Phase 04-01]: Search results capped at 20 via .take(20) -- sufficient for personal kanban
+- [Phase 04-01]: Toolbar pattern established above board content for SearchBar (extensible for future widgets)
 
 ### Pending Todos
 
@@ -74,5 +79,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-02-15
-Stopped at: Completed 03-02-PLAN.md -- Phase 3 (Drag and Drop) fully complete, all 6 columns support cross-column drag-and-drop
+Stopped at: Completed 04-01-PLAN.md -- Full-text search with debounced SearchBar and conditional search results view
 Resume file: None

@@ -14,7 +14,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 1: Foundation** - Convex schema, project scaffolding, and static board with 6 columns (completed 2026-02-15)
 - [x] **Phase 2: Task Management** - Full task CRUD with modal editing and keyboard quick-add (completed 2026-02-15)
-- [ ] **Phase 3: Drag and Drop** - Move tasks between columns via drag-and-drop with optimistic UI
+- [x] **Phase 3: Drag and Drop** - Move tasks between columns via drag-and-drop with optimistic UI (completed 2026-02-15)
 - [ ] **Phase 4: Search and Filters** - Full-text search across active and archived tasks with quick filters
 - [ ] **Phase 5: Auto-Archive** - Automatic archiving of Done tasks and dedicated archive view
 - [ ] **Phase 6: Polish and Deploy** - Responsive layout, column counts, and Vercel deployment
@@ -62,8 +62,8 @@ Plans:
 **Plans**: 2 plans
 
 Plans:
-- [ ] 03-01-PLAN.md -- Install dnd-kit, add moveToColumn mutation with completedAt logic, create TaskCardOverlay
-- [ ] 03-02-PLAN.md -- Wire DndContext into Board, useDroppable into Column, useSortable into TaskCard with optimistic updates
+- [x] 03-01-PLAN.md -- Install dnd-kit, add moveToColumn mutation with completedAt logic, create TaskCardOverlay
+- [x] 03-02-PLAN.md -- Wire DndContext into Board, useDroppable into Column, useSortable into TaskCard with optimistic updates
 
 ### Phase 4: Search and Filters
 **Goal**: User can find any task — active or archived — by keyword, and quickly filter to today's/this week's/this month's work
@@ -114,7 +114,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6
 |-------|----------------|--------|-----------|
 | 1. Foundation | 2/2 | ✓ Complete | 2026-02-15 |
 | 2. Task Management | 2/2 | ✓ Complete | 2026-02-15 |
-| 3. Drag and Drop | 0/2 | Not started | - |
+| 3. Drag and Drop | 2/2 | ✓ Complete | 2026-02-15 |
 | 4. Search and Filters | 0/TBD | Not started | - |
 | 5. Auto-Archive | 0/TBD | Not started | - |
 | 6. Polish and Deploy | 0/TBD | Not started | - |

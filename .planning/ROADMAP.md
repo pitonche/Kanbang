@@ -59,10 +59,11 @@ Plans:
   1. User can drag a task card from one column and drop it into another column, and the task stays in the new column
   2. Moving a task to the Done column automatically sets its completedAt timestamp
   3. Drag interaction is smooth with no visible snap-back or flicker after dropping
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
-- [ ] 03-01: TBD
+- [ ] 03-01-PLAN.md -- Install dnd-kit, add moveToColumn mutation with completedAt logic, create TaskCardOverlay
+- [ ] 03-02-PLAN.md -- Wire DndContext into Board, useDroppable into Column, useSortable into TaskCard with optimistic updates
 
 ### Phase 4: Search and Filters
 **Goal**: User can find any task — active or archived — by keyword, and quickly filter to today's/this week's/this month's work
@@ -113,7 +114,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6
 |-------|----------------|--------|-----------|
 | 1. Foundation | 2/2 | ✓ Complete | 2026-02-15 |
 | 2. Task Management | 2/2 | ✓ Complete | 2026-02-15 |
-| 3. Drag and Drop | 0/TBD | Not started | - |
+| 3. Drag and Drop | 0/2 | Not started | - |
 | 4. Search and Filters | 0/TBD | Not started | - |
 | 5. Auto-Archive | 0/TBD | Not started | - |
 | 6. Polish and Deploy | 0/TBD | Not started | - |

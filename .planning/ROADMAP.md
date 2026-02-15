@@ -73,10 +73,11 @@ Plans:
   1. User can type a keyword into a search bar and see matching tasks from both active and archived tasks
   2. Search matches against both task title and notes content
   3. User can click quick-filter buttons (Today / This Week / This Month) to filter tasks by cadence
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
-- [ ] 04-01: TBD
+- [ ] 04-01-PLAN.md -- Convex search query, useDebounce hook, SearchBar component, Board toolbar with search results display
+- [ ] 04-02-PLAN.md -- CadenceFilter toggle buttons, Board cadence filtering with mutual exclusion, "/" keyboard shortcut
 
 ### Phase 5: Auto-Archive
 **Goal**: The board stays clean automatically — Done tasks archive themselves, and users can browse their full history in a separate view

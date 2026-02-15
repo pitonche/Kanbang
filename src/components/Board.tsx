@@ -192,7 +192,7 @@ export function Board({ onSearchInputRef }: { onSearchInputRef?: (el: HTMLInputE
               )}
             </div>
           ) : (
-            <div className="flex gap-4 px-3 sm:px-6 pb-6 overflow-x-auto flex-1 items-start">
+            <div className="flex flex-col gap-3 px-3 pb-6 overflow-y-auto flex-1 sm:flex-row sm:gap-4 sm:px-6 sm:overflow-x-auto sm:items-start">
               {COLUMNS.map((col) => (
                 <Column
                   key={col.id}

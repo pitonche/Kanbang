@@ -10,18 +10,18 @@ See: .planning/PROJECT.md (updated 2026-02-15)
 ## Current Position
 
 Phase: 3 of 6 (Drag and Drop)
-Plan: 0 of ? in current phase
-Status: Phase 2 complete -- ready for Phase 3
-Last activity: 2026-02-15 -- Completed 02-02 (Task detail modal and quick-add)
+Plan: 1 of 2 in current phase
+Status: Executing Phase 3 plans
+Last activity: 2026-02-15 -- Completed 03-01 (DnD foundation)
 
-Progress: [████░░░░░░] 33%
+Progress: [████░░░░░░] 42%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 4
-- Average duration: 3min
-- Total execution time: 0.17 hours
+- Total plans completed: 5
+- Average duration: 2min
+- Total execution time: 0.18 hours
 
 **By Phase:**
 
@@ -29,9 +29,10 @@ Progress: [████░░░░░░] 33%
 |-------|-------|-------|----------|
 | 01-foundation | 2 | 6min | 3min |
 | 02-task-management | 2 | 4min | 2min |
+| 03-drag-and-drop | 1 | 1min | 1min |
 
 **Recent Trend:**
-- Last 5 plans: 01-01 (4min), 01-02 (2min), 02-01 (2min), 02-02 (2min)
+- Last 5 plans: 01-02 (2min), 02-01 (2min), 02-02 (2min), 03-01 (1min)
 - Trend: Accelerating
 
 *Updated after each plan completion*
@@ -55,6 +56,9 @@ Recent decisions affecting current work:
 - [Phase 02-02]: Consolidated typedTasks cast for both Object.groupBy and selectedTask find
 - [Phase 02-02]: QuickAdd defaults cadence "none" and priority "medium" -- user refines via TaskModal
 - [Phase 02-02]: Native HTML dialog element pattern for modals (no library dependency)
+- [Phase 03-01]: TaskCardOverlay is purely presentational -- no dnd-kit hooks to avoid duplicate IDs in DragOverlay
+- [Phase 03-01]: moveToColumn mutation uses undefined (not null) to clear completedAt, matching Convex optional field semantics
+- [Phase 03-01]: Dedicated moveToColumn mutation separate from general update (column moves don't affect searchText)
 
 ### Pending Todos
 
@@ -67,5 +71,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-02-15
-Stopped at: Completed 02-02-PLAN.md -- Phase 2 (Task Management) complete, ready for Phase 3 (Drag and Drop)
+Stopped at: Completed 03-01-PLAN.md -- DnD foundation (packages, mutation, overlay) ready for 03-02 (board wiring)
 Resume file: None

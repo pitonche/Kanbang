@@ -22,11 +22,9 @@ import { CadenceFilter } from "./CadenceFilter";
 import { useDebounce } from "../hooks/useDebounce";
 
 export const COLUMNS = [
-  { id: "inbox", label: "Inbox" },
   { id: "backlog", label: "Backlog" },
   { id: "in_progress", label: "In Progress" },
   { id: "needs_info", label: "Needs Info" },
-  { id: "blocked", label: "Blocked" },
   { id: "done", label: "Done" },
 ] as const;
 

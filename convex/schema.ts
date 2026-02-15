@@ -9,11 +9,9 @@ export default defineSchema({
 
     // Board position
     column: v.union(
-      v.literal("inbox"),
       v.literal("backlog"),
       v.literal("in_progress"),
       v.literal("needs_info"),
-      v.literal("blocked"),
       v.literal("done"),
       v.literal("archived"),
     ),

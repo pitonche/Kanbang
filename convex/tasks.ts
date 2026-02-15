@@ -35,7 +35,7 @@ export const create = mutation({
       notes: args.notes,
       cadence: args.cadence,
       priority: args.priority,
-      column: "inbox",
+      column: "backlog",
       searchText,
       createdAt: now,
       updatedAt: now,
@@ -100,11 +100,9 @@ export const moveToColumn = mutation({
   args: {
     id: v.id("tasks"),
     column: v.union(
-      v.literal("inbox"),
       v.literal("backlog"),
       v.literal("in_progress"),
       v.literal("needs_info"),
-      v.literal("blocked"),
       v.literal("done"),
     ),
   },

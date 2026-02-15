@@ -5,23 +5,23 @@
 See: .planning/PROJECT.md (updated 2026-02-15)
 
 **Core value:** Add a task in seconds, find any past task by keyword in seconds -- the board stays clean because Done items auto-archive, but history is never lost.
-**Current focus:** Phase 5: Auto-Archive -- Plan 01 complete, Plan 02 next
+**Current focus:** Phase 5: Auto-Archive -- Complete. Ready for Phase 06.
 
 ## Current Position
 
 Phase: 5 of 6 (Auto-Archive)
-Plan: 1 of 2 in current phase
-Status: Executing Phase 05
-Last activity: 2026-02-15 -- Completed 05-01 (auto-archive backend)
+Plan: 2 of 2 in current phase
+Status: Phase 05 Complete
+Last activity: 2026-02-15 -- Completed 05-02 (archive view UI)
 
-Progress: [████████░░] 75%
+Progress: [█████████░] 83%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 9
+- Total plans completed: 10
 - Average duration: 2min
-- Total execution time: 0.30 hours
+- Total execution time: 0.32 hours
 
 **By Phase:**
 
@@ -31,10 +31,10 @@ Progress: [████████░░] 75%
 | 02-task-management | 2 | 4min | 2min |
 | 03-drag-and-drop | 2 | 3min | 1.5min |
 | 04-search-and-filters | 2 | 4min | 2min |
-| 05-auto-archive | 1 | 1min | 1min |
+| 05-auto-archive | 2 | 2min | 1min |
 
 **Recent Trend:**
-- Last 5 plans: 03-01 (1min), 03-02 (2min), 04-01 (2min), 04-02 (2min), 05-01 (1min)
+- Last 5 plans: 03-02 (2min), 04-01 (2min), 04-02 (2min), 05-01 (1min), 05-02 (1min)
 - Trend: Stable/fast
 
 *Updated after each plan completion*
@@ -74,6 +74,9 @@ Recent decisions affecting current work:
 - [Phase 05-01]: Regular mutation (not internalMutation) for archiveOldDone since it is called from client
 - [Phase 05-01]: moveToColumn validator unchanged -- users cannot drag tasks to archived column
 - [Phase 05-01]: Fire-and-forget pattern for archive trigger -- Board reactively updates via useQuery subscription
+- [Phase 05-02]: Client-side search filtering on searchText field for archive search (bounded volume, no server query needed)
+- [Phase 05-02]: Nav bar above view content with active border-b-2 styling for view switching
+- [Phase 05-02]: useEffect dependency on view state for keyboard shortcut guard correctness
 
 ### Pending Todos
 
@@ -86,5 +89,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-02-15
-Stopped at: Completed 05-01-PLAN.md -- Auto-archive backend (schema, mutation, queries, App.tsx trigger). Ready for 05-02.
+Stopped at: Completed 05-02-PLAN.md -- Archive view UI (ArchiveView component, App.tsx view switching). Phase 05 complete. Ready for Phase 06.
 Resume file: None

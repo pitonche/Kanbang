@@ -1,12 +1,7 @@
 import type { Doc, Id } from "../../convex/_generated/dataModel";
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
-
-const priorityBorder = {
-  low: "border-l-priority-low",
-  medium: "border-l-priority-medium",
-  high: "border-l-priority-high",
-} as const;
+import { TaskCardContent } from "./TaskCardContent";
 
 interface TaskCardProps {
   task: Doc<"tasks">;
@@ -30,21 +25,26 @@ export function TaskCard({ task, onClick }: TaskCardProps) {
     touchAction: "manipulation" as const,
   };
 
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      onClick(task._id);
+    }
+  };
+
   return (
     <div
       ref={setNodeRef}
       style={style}
       {...attributes}
       {...listeners}
-      className={`bg-card-bg border border-card-border rounded-md p-3 mb-2 border-l-4 cursor-pointer hover:shadow-sm transition-shadow ${priorityBorder[task.priority]}`}
+      role="button"
+      tabIndex={0}
+      onKeyDown={handleKeyDown}
+      className="mb-2 cursor-pointer hover:shadow-sm transition-[box-shadow,opacity] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-nav-btn-bg rounded-md"
       onClick={() => onClick(task._id)}
     >
-      <p className="text-sm font-medium text-slate-800">{task.title}</p>
-      {task.notes && task.notes.length > 0 && (
-        <p className="text-xs text-slate-500 mt-1 line-clamp-2">
-          {task.notes}
-        </p>
-      )}
+      <TaskCardContent task={task} />
     </div>
   );
 }

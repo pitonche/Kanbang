@@ -26,3 +26,5 @@ dist-ssr
 
 # Package manager
 package-lock.json
+.vercel
+.env*.local

@@ -1,13 +1,152 @@
 @import "tailwindcss";
 
+/* Light theme (default) */
+:root {
+  --board-bg: #f1f5f9;
+  --column-bg: #e2e8f0;
+  --column-header: #334155;
+  --card-bg: #ffffff;
+  --card-border: #cbd5e1;
+  --empty-state: #94a3b8;
+  --priority-low: #22c55e;
+  --priority-medium: #f59e0b;
+  --priority-high: #ef4444;
+
+  --nav-bg: #ffffff;
+  --nav-border: #e2e8f0;
+  --nav-title: #1e293b;
+  --nav-text: #64748b;
+  --nav-text-active: #1e293b;
+  --nav-btn-bg: #334155;
+  --nav-btn-text: #ffffff;
+
+  --card-title: #1e293b;
+  --card-subtitle: #64748b;
+
+  --input-bg: #ffffff;
+  --input-border: #cbd5e1;
+  --input-text: #1e293b;
+  --input-placeholder: #94a3b8;
+
+  --dialog-bg: #ffffff;
+  --dialog-border: #e2e8f0;
+  --dialog-title: #1e293b;
+  --dialog-label: #334155;
+
+  --count-bg: #cbd5e1;
+  --count-text: #334155;
+
+  --search-result-bg: #ffffff;
+  --search-result-border: #e2e8f0;
+
+  --filter-bg: #ffffff;
+  --filter-text: #475569;
+  --filter-border: #cbd5e1;
+  --filter-bg-active: #334155;
+  --filter-text-active: #ffffff;
+  --filter-border-active: #334155;
+}
+
+/* Dark theme */
+.dark {
+  --board-bg: #0f172a;
+  --column-bg: #1e293b;
+  --column-header: #cbd5e1;
+  --card-bg: #1e293b;
+  --card-border: #334155;
+  --empty-state: #475569;
+  --priority-low: #22c55e;
+  --priority-medium: #f59e0b;
+  --priority-high: #ef4444;
+
+  --nav-bg: #1e293b;
+  --nav-border: #334155;
+  --nav-title: #f1f5f9;
+  --nav-text: #94a3b8;
+  --nav-text-active: #f1f5f9;
+  --nav-btn-bg: #475569;
+  --nav-btn-text: #f1f5f9;
+
+  --card-title: #f1f5f9;
+  --card-subtitle: #94a3b8;
+
+  --input-bg: #0f172a;
+  --input-border: #334155;
+  --input-text: #f1f5f9;
+  --input-placeholder: #64748b;
+
+  --dialog-bg: #1e293b;
+  --dialog-border: #334155;
+  --dialog-title: #f1f5f9;
+  --dialog-label: #cbd5e1;
+
+  --count-bg: #334155;
+  --count-text: #cbd5e1;
+
+  --search-result-bg: #1e293b;
+  --search-result-border: #334155;
+
+  --filter-bg: #0f172a;
+  --filter-text: #94a3b8;
+  --filter-border: #334155;
+  --filter-bg-active: #475569;
+  --filter-text-active: #f1f5f9;
+  --filter-border-active: #475569;
+}
+
 @theme {
-  --color-board-bg: #f1f5f9;
-  --color-column-bg: #e2e8f0;
-  --color-column-header: #334155;
-  --color-card-bg: #ffffff;
-  --color-card-border: #cbd5e1;
-  --color-empty-state: #94a3b8;
-  --color-priority-low: #22c55e;
-  --color-priority-medium: #f59e0b;
-  --color-priority-high: #ef4444;
+  --color-board-bg: var(--board-bg);
+  --color-column-bg: var(--column-bg);
+  --color-column-header: var(--column-header);
+  --color-card-bg: var(--card-bg);
+  --color-card-border: var(--card-border);
+  --color-empty-state: var(--empty-state);
+  --color-priority-low: var(--priority-low);
+  --color-priority-medium: var(--priority-medium);
+  --color-priority-high: var(--priority-high);
+
+  --color-nav-bg: var(--nav-bg);
+  --color-nav-border: var(--nav-border);
+  --color-nav-title: var(--nav-title);
+  --color-nav-text: var(--nav-text);
+  --color-nav-text-active: var(--nav-text-active);
+  --color-nav-btn-bg: var(--nav-btn-bg);
+  --color-nav-btn-text: var(--nav-btn-text);
+
+  --color-card-title: var(--card-title);
+  --color-card-subtitle: var(--card-subtitle);
+
+  --color-input-bg: var(--input-bg);
+  --color-input-border: var(--input-border);
+  --color-input-text: var(--input-text);
+  --color-input-placeholder: var(--input-placeholder);
+
+  --color-dialog-bg: var(--dialog-bg);
+  --color-dialog-border: var(--dialog-border);
+  --color-dialog-title: var(--dialog-title);
+  --color-dialog-label: var(--dialog-label);
+
+  --color-count-bg: var(--count-bg);
+  --color-count-text: var(--count-text);
+
+  --color-search-result-bg: var(--search-result-bg);
+  --color-search-result-border: var(--search-result-border);
+
+  --color-filter-bg: var(--filter-bg);
+  --color-filter-text: var(--filter-text);
+  --color-filter-border: var(--filter-border);
+  --color-filter-bg-active: var(--filter-bg-active);
+  --color-filter-text-active: var(--filter-text-active);
+  --color-filter-border-active: var(--filter-border-active);
+}
+
+@keyframes dialog-fade-in {
+  from { opacity: 0; transform: scale(0.95) translateY(-8px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+dialog[open] { animation: dialog-fade-in 150ms ease-out; }
+dialog[open]::backdrop { animation: dialog-fade-in 150ms ease-out; }
+
+*, *::before, *::after {
+  transition: color 200ms ease, background-color 200ms ease, border-color 200ms ease;
 }

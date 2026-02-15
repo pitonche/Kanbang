@@ -8,10 +8,12 @@ import {
   closestCorners,
   PointerSensor,
   TouchSensor,
+  KeyboardSensor,
   useSensor,
   useSensors,
 } from "@dnd-kit/core";
 import type { DragStartEvent, DragEndEvent } from "@dnd-kit/core";
+import { sortableKeyboardCoordinates } from "@dnd-kit/sortable";
 import { Column } from "./Column";
 import { TaskModal } from "./TaskModal";
 import { TaskCardOverlay } from "./TaskCardOverlay";
@@ -64,6 +66,7 @@ export function Board({ onSearchInputRef }: { onSearchInputRef?: (el: HTMLInputE
   const sensors = useSensors(
     useSensor(PointerSensor, { activationConstraint: { distance: 8 } }),
     useSensor(TouchSensor, { activationConstraint: { delay: 200, tolerance: 5 } }),
+    useSensor(KeyboardSensor, { coordinateGetter: sortableKeyboardCoordinates }),
   );
 
   const moveToColumn = useMutation(api.tasks.moveToColumn).withOptimisticUpdate(
@@ -90,8 +93,8 @@ export function Board({ onSearchInputRef }: { onSearchInputRef?: (el: HTMLInputE
 
   if (tasks === undefined) {
     return (
-      <div className="flex items-center justify-center min-h-screen bg-board-bg">
-        <p className="text-sm text-slate-500">Loading...</p>
+      <div className="flex items-center justify-center flex-1 bg-board-bg">
+        <p className="text-sm text-card-subtitle">Loading...</p>
       </div>
     );
   }
@@ -159,14 +162,14 @@ export function Board({ onSearchInputRef }: { onSearchInputRef?: (el: HTMLInputE
 
           {/* Content area: search results OR board columns */}
           {isSearchActive ? (
-            <div className="px-6 py-4">
+            <div className="px-3 sm:px-6 py-4">
               {searchResults === undefined ? (
-                <p className="text-sm text-slate-500">Searching...</p>
+                <p className="text-sm text-card-subtitle">Searching...</p>
               ) : searchResults.length === 0 ? (
-                <p className="text-sm text-slate-500">No tasks found for &ldquo;{debouncedTerm.trim()}&rdquo;</p>
+                <p className="text-sm text-card-subtitle">No tasks found for &ldquo;{debouncedTerm.trim()}&rdquo;</p>
               ) : (
                 <div className="space-y-2 max-w-2xl">
-                  <p className="text-xs text-slate-500 mb-3">
+                  <p className="text-xs text-card-subtitle mb-3">
                     {searchResults.length} result{searchResults.length !== 1 ? "s" : ""}
                   </p>
                   {(searchResults as Doc<"tasks">[]).map((task) => {
@@ -175,14 +178,14 @@ export function Board({ onSearchInputRef }: { onSearchInputRef?: (el: HTMLInputE
                       <button
                         key={task._id}
                         onClick={() => setSelectedTaskId(task._id)}
-                        className="w-full text-left p-3 bg-white rounded-lg border border-slate-200 hover:border-slate-300 transition-colors"
+                        className="w-full text-left p-3 bg-search-result-bg rounded-lg border border-search-result-border hover:border-input-placeholder transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-nav-btn-bg"
                       >
                         <div className="flex items-center justify-between">
-                          <span className="text-sm font-medium text-slate-800">{task.title}</span>
-                          <span className="text-xs text-slate-400 ml-2">{colLabel}</span>
+                          <span className="text-sm font-medium text-card-title">{task.title}</span>
+                          <span className="text-xs text-count-text ml-2">{colLabel}</span>
                         </div>
                         {task.notes && (
-                          <p className="text-xs text-slate-500 mt-1 line-clamp-1">{task.notes}</p>
+                          <p className="text-xs text-card-subtitle mt-1 line-clamp-1">{task.notes}</p>
                         )}
                       </button>
                     );
@@ -191,7 +194,7 @@ export function Board({ onSearchInputRef }: { onSearchInputRef?: (el: HTMLInputE
               )}
             </div>
           ) : (
-            <div className="flex gap-4 px-6 pb-6 overflow-x-auto flex-1 items-start">
+            <div className="flex gap-4 px-3 sm:px-6 pb-6 overflow-x-auto flex-1 items-start">
               {COLUMNS.map((col) => (
                 <Column
                   key={col.id}

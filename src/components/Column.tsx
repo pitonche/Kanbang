@@ -3,7 +3,7 @@ interface ColumnProps {
   label: string;
 }
 
-export function Column({ id, label }: ColumnProps) {
+export function Column({ id: _id, label }: ColumnProps) {
   return (
     <div className="flex flex-col w-72 shrink-0 rounded-lg bg-column-bg">
       <h2 className="px-3 py-2 text-sm font-semibold text-column-header uppercase tracking-wide">

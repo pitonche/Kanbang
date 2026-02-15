@@ -5,23 +5,23 @@
 See: .planning/PROJECT.md (updated 2026-02-15)
 
 **Core value:** Add a task in seconds, find any past task by keyword in seconds -- the board stays clean because Done items auto-archive, but history is never lost.
-**Current focus:** Phase 4: Search and Filters -- Complete. Ready for Phase 5
+**Current focus:** Phase 5: Auto-Archive -- Plan 01 complete, Plan 02 next
 
 ## Current Position
 
-Phase: 4 of 6 (Search and Filters) -- COMPLETE
-Plan: 2 of 2 in current phase
-Status: Phase 04 complete, ready for Phase 05
-Last activity: 2026-02-15 -- Completed 04-02 (cadence filter and search shortcut)
+Phase: 5 of 6 (Auto-Archive)
+Plan: 1 of 2 in current phase
+Status: Executing Phase 05
+Last activity: 2026-02-15 -- Completed 05-01 (auto-archive backend)
 
-Progress: [███████░░░] 67%
+Progress: [████████░░] 75%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 8
+- Total plans completed: 9
 - Average duration: 2min
-- Total execution time: 0.28 hours
+- Total execution time: 0.30 hours
 
 **By Phase:**
 
@@ -31,9 +31,10 @@ Progress: [███████░░░] 67%
 | 02-task-management | 2 | 4min | 2min |
 | 03-drag-and-drop | 2 | 3min | 1.5min |
 | 04-search-and-filters | 2 | 4min | 2min |
+| 05-auto-archive | 1 | 1min | 1min |
 
 **Recent Trend:**
-- Last 5 plans: 02-02 (2min), 03-01 (1min), 03-02 (2min), 04-01 (2min), 04-02 (2min)
+- Last 5 plans: 03-01 (1min), 03-02 (2min), 04-01 (2min), 04-02 (2min), 05-01 (1min)
 - Trend: Stable/fast
 
 *Updated after each plan completion*
@@ -70,6 +71,9 @@ Recent decisions affecting current work:
 - [Phase 04-02]: Mutual exclusion via state clearing -- search clears cadence filter, filter clears search text
 - [Phase 04-02]: Ref callback pattern (not forwardRef) for cross-component focus wiring through Board prop
 - [Phase 04-02]: Client-side cadence filtering applied before Object.groupBy -- selectedTask uses full typedTasks array
+- [Phase 05-01]: Regular mutation (not internalMutation) for archiveOldDone since it is called from client
+- [Phase 05-01]: moveToColumn validator unchanged -- users cannot drag tasks to archived column
+- [Phase 05-01]: Fire-and-forget pattern for archive trigger -- Board reactively updates via useQuery subscription
 
 ### Pending Todos
 
@@ -82,5 +86,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-02-15
-Stopped at: Completed 04-02-PLAN.md -- Cadence filter buttons and "/" search shortcut. Phase 04 complete.
+Stopped at: Completed 05-01-PLAN.md -- Auto-archive backend (schema, mutation, queries, App.tsx trigger). Ready for 05-02.
 Resume file: None

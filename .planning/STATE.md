@@ -5,23 +5,23 @@
 See: .planning/PROJECT.md (updated 2026-02-15)
 
 **Core value:** Add a task in seconds, find any past task by keyword in seconds -- the board stays clean because Done items auto-archive, but history is never lost.
-**Current focus:** Phase 3: Drag and Drop
+**Current focus:** Phase 3 complete -- ready for Phase 4: Search and Filters
 
 ## Current Position
 
-Phase: 3 of 6 (Drag and Drop)
-Plan: 1 of 2 in current phase
-Status: Executing Phase 3 plans
-Last activity: 2026-02-15 -- Completed 03-01 (DnD foundation)
+Phase: 3 of 6 (Drag and Drop) -- COMPLETE
+Plan: 2 of 2 in current phase (all plans complete)
+Status: Phase 3 complete, ready for Phase 4
+Last activity: 2026-02-15 -- Completed 03-02 (DnD board wiring)
 
-Progress: [████░░░░░░] 42%
+Progress: [█████░░░░░] 50%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 5
+- Total plans completed: 6
 - Average duration: 2min
-- Total execution time: 0.18 hours
+- Total execution time: 0.21 hours
 
 **By Phase:**
 
@@ -29,11 +29,11 @@ Progress: [████░░░░░░] 42%
 |-------|-------|-------|----------|
 | 01-foundation | 2 | 6min | 3min |
 | 02-task-management | 2 | 4min | 2min |
-| 03-drag-and-drop | 1 | 1min | 1min |
+| 03-drag-and-drop | 2 | 3min | 1.5min |
 
 **Recent Trend:**
-- Last 5 plans: 01-02 (2min), 02-01 (2min), 02-02 (2min), 03-01 (1min)
-- Trend: Accelerating
+- Last 5 plans: 02-01 (2min), 02-02 (2min), 03-01 (1min), 03-02 (2min)
+- Trend: Stable/fast
 
 *Updated after each plan completion*
 
@@ -59,6 +59,9 @@ Recent decisions affecting current work:
 - [Phase 03-01]: TaskCardOverlay is purely presentational -- no dnd-kit hooks to avoid duplicate IDs in DragOverlay
 - [Phase 03-01]: moveToColumn mutation uses undefined (not null) to clear completedAt, matching Convex optional field semantics
 - [Phase 03-01]: Dedicated moveToColumn mutation separate from general update (column moves don't affect searchText)
+- [Phase 03-02]: PointerSensor distance:8 prevents click-vs-drag conflict without touch delay
+- [Phase 03-02]: Optimistic update casts getQuery result to Doc<tasks>[] for strict build mode compatibility
+- [Phase 03-02]: Column detection in handleDragEnd checks COLUMNS ids first, then falls back to task lookup
 
 ### Pending Todos
 
@@ -66,10 +69,10 @@ None yet.
 
 ### Blockers/Concerns
 
-- [Phase 3]: Drag-and-drop snap-back with Convex reactive queries is the highest-risk integration point -- may need research-phase before planning
+- ~~[Phase 3]: Drag-and-drop snap-back with Convex reactive queries~~ -- RESOLVED: Optimistic update via .withOptimisticUpdate() patches localStore synchronously, preventing snap-back
 
 ## Session Continuity
 
 Last session: 2026-02-15
-Stopped at: Completed 03-01-PLAN.md -- DnD foundation (packages, mutation, overlay) ready for 03-02 (board wiring)
+Stopped at: Completed 03-02-PLAN.md -- Phase 3 (Drag and Drop) fully complete, all 6 columns support cross-column drag-and-drop
 Resume file: None
